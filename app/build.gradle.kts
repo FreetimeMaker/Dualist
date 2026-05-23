@@ -7,16 +7,12 @@ plugins {
 
 android {
     namespace = "com.freetime.dualist"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.freetime.dualist"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -77,7 +73,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.moshi.kotlin)
     implementation(libs.okhttp)
-    implementation(libs.play.services.location)
     implementation(libs.retrofit)
     testImplementation(libs.androidx.core)
     testImplementation(libs.androidx.junit)
