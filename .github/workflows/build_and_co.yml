@@ -70,10 +70,17 @@ jobs:
       - name: Sign Android
         id: sign_apk
         run: |
-          UNSIGNED_APK="app/build/outputs/apk/release/app-release-unsigned.apk"
+          UNSIGNED_APK=$(find app/build/outputs/apk/release -name "*.apk" | head -n 1)
           SIGNED_APK="Dualist-v${{ needs.prepare_android_app.outputs.version }}.apk"
 
+          if [ -z "$UNSIGNED_APK" ]; then
+            echo "Fehler: Keine APK in app/build/outputs/apk/release gefunden!"
+            exit 1
+          fi
+
+          echo "==> Gefundene APK: $UNSIGNED_APK"
           echo "==> Signiere APK: $SIGNED_APK"
+
           "${{ steps.find_apksigner.outputs.apksigner }}" sign \
             --ks ./Dualist-KeyStore.jks \
             --ks-key-alias alle \
