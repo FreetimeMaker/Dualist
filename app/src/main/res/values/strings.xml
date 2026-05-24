@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Dualist</string>
+    <string name="add_task">Add Task</string>
+    <string name="new_task">New Task</string>
+    <string name="task_title">Task Title</string>
+    <string name="task_title_placeholder">What needs to be done?</string>
+    <string name="cancel">Cancel</string>
+    <string name="no_tasks">No tasks yet. Add one!</string>
+    <string name="task_details">Task Details</string>
+    <string name="delete_task">Delete Task</string>
+    <string name="status_completed">Completed</string>
+    <string name="status_pending">Pending</string>
+    <string name="description_label">Description</string>
+    <string name="no_description">No description provided for this task.</string>
+    <string name="select_task_prompt">Select a task to see details</string>
+    <string name="toggle_completion">Toggle completion</string>
 </resources>

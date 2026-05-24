@@ -10,8 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.freetime.dualist.R
 import com.freetime.dualist.data.Task
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -32,7 +34,7 @@ fun TaskDetailScreen(
                             tint = MaterialTheme.colorScheme.primary
                         )
                         Spacer(modifier = Modifier.width(12.dp))
-                        Text("Details")
+                        Text(stringResource(R.string.task_details))
                     }
                 },
                 actions = {
@@ -44,7 +46,10 @@ fun TaskDetailScreen(
                                 contentColor = MaterialTheme.colorScheme.onErrorContainer
                             )
                         ) {
-                            Icon(Icons.Default.Delete, contentDescription = "Delete Task")
+                            Icon(
+                                Icons.Default.Delete, 
+                                contentDescription = stringResource(R.string.delete_task)
+                            )
                         }
                     }
                 },
@@ -90,7 +95,9 @@ fun TaskDetailScreen(
                             else MaterialTheme.colorScheme.secondaryContainer
                         ) {
                             Text(
-                                text = if (task.isCompleted) "Completed" else "Pending",
+                                text = if (task.isCompleted) 
+                                    stringResource(R.string.status_completed) 
+                                else stringResource(R.string.status_pending),
                                 style = MaterialTheme.typography.labelLarge,
                                 modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
                                 color = if (task.isCompleted) 
@@ -100,7 +107,7 @@ fun TaskDetailScreen(
                         }
                         Spacer(modifier = Modifier.height(24.dp))
                         Text(
-                            text = "Description",
+                            text = stringResource(R.string.description_label),
                             style = MaterialTheme.typography.titleSmall,
                             color = MaterialTheme.colorScheme.primary,
                             fontWeight = FontWeight.Bold
@@ -114,7 +121,7 @@ fun TaskDetailScreen(
                             )
                         } else {
                             Text(
-                                text = "No description provided for this task.",
+                                text = stringResource(R.string.no_description),
                                 style = MaterialTheme.typography.bodyLarge,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
                             )
@@ -123,7 +130,7 @@ fun TaskDetailScreen(
                 }
             } else {
                 Text(
-                    text = "Select a task to see details",
+                    text = stringResource(R.string.select_task_prompt),
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

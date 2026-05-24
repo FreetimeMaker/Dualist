@@ -14,9 +14,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import com.freetime.dualist.R
 import com.freetime.dualist.data.Task
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -44,7 +46,7 @@ fun TaskListScreen(
                         )
                         Spacer(modifier = Modifier.width(12.dp))
                         Text(
-                            "Dualist",
+                            stringResource(R.string.app_name),
                             fontWeight = FontWeight.Bold
                         )
                     }
@@ -64,7 +66,7 @@ fun TaskListScreen(
             ) {
                 Icon(
                     Icons.Default.Add, 
-                    contentDescription = "Add Task",
+                    contentDescription = stringResource(R.string.add_task),
                     modifier = Modifier.size(36.dp)
                 )
             }
@@ -73,7 +75,7 @@ fun TaskListScreen(
         Column(modifier = modifier.padding(padding).fillMaxSize()) {
             if (tasks.isEmpty()) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text("No tasks yet. Add one!", style = MaterialTheme.typography.bodyLarge)
+                    Text(stringResource(R.string.no_tasks), style = MaterialTheme.typography.bodyLarge)
                 }
             } else {
                 LazyColumn {
@@ -103,7 +105,7 @@ fun TaskListScreen(
                                 ) {
                                     Icon(
                                         imageVector = if (task.isCompleted) Icons.Filled.CheckCircle else Icons.Outlined.Circle,
-                                        contentDescription = "Toggle completion",
+                                        contentDescription = stringResource(R.string.toggle_completion),
                                         tint = if (task.isCompleted) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline,
                                         modifier = Modifier.size(28.dp)
                                     )
@@ -131,14 +133,14 @@ fun TaskListScreen(
     if (showAddDialog) {
         AlertDialog(
             onDismissRequest = { showAddDialog = false },
-            title = { Text("New Task", style = MaterialTheme.typography.headlineSmall) },
+            title = { Text(stringResource(R.string.new_task), style = MaterialTheme.typography.headlineSmall) },
             text = {
                 Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                     OutlinedTextField(
                         value = newTaskTitle,
                         onValueChange = { newTaskTitle = it },
-                        label = { Text("Task Title") },
-                        placeholder = { Text("What needs to be done?") },
+                        label = { Text(stringResource(R.string.task_title)) },
+                        placeholder = { Text(stringResource(R.string.task_title_placeholder)) },
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth(),
                         shape = MaterialTheme.shapes.medium
@@ -156,12 +158,12 @@ fun TaskListScreen(
                     },
                     shape = MaterialTheme.shapes.medium
                 ) {
-                    Text("Add Task")
+                    Text(stringResource(R.string.add_task))
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showAddDialog = false }) {
-                    Text("Cancel")
+                    Text(stringResource(R.string.cancel))
                 }
             },
             shape = MaterialTheme.shapes.extraLarge
