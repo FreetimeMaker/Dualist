@@ -45,7 +45,6 @@ Built with **Jetpack Compose** and **Material 3**, Dualist follows a strict **Of
 ## 📦 Production Readiness
 
 This project is configured for production:
-- **Localization**: All strings are externalized in `strings.xml`.
 - **Accessibility**: Support for screen readers (TalkBack).
 - **Security**: R8/ProGuard minification enabled for release builds.
 - **Testing**: Includes a foundation for unit and ViewModel tests.
