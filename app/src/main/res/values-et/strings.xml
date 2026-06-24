@@ -1,3 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Dualist</string>
+    <string name="add_task">Lisas ülesanne</string>
+    <string name="new_task">Uus ülesanne</string>
+    <string name="task_title">Ülesande pealkiri</string>
+    <string name="task_title_placeholder">Mida sa tahad ära teha?</string>
+    <string name="cancel">Tühista</string>
+    <string name="no_tasks">Ülesandeid veel pole. Lisa mõni!</string>
+    <string name="task_details">Ülesande üksikasjad</string>
+    <string name="delete_task">Kustuta ülesanne</string>
+    <string name="status_completed">Lõpetatud</string>
+    <string name="status_pending">Ootel</string>
+    <string name="description_label">Kirjeldus</string>
+    <string name="no_description">Sellel ülesandel pole kirjeldust.</string>
+    <string name="select_task_prompt">Üksikasjade nägemiseks klõpsa temal</string>
+    <string name="toggle_completion">Lülita tehtud olek sisse/välja</string>
 </resources>
