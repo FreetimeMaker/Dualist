@@ -7,7 +7,11 @@ Built with **Jetpack Compose** and **Material 3**, Dualist follows a strict **Of
 ## ✨ Features
 
 - **Adaptive 2-Pane Layout**: Automatically switches between a single-column list on phones and a List-Detail view on tablets and foldables.
+- **Search & Filter**: Quickly find tasks with real-time search.
+- **Swipe-to-Delete**: Intuitive gestures to manage your task list.
+- **Categories & Tags**: Organize your tasks into categories for better focus.
 - **Offline-First**: All data is stored locally in a Room database. No internet connection required.
+- **Import/Export**: Easily backup and restore your tasks locally.
 - **GMS-Free**: No dependencies on Google Play Services or Firebase. Ideal for de-googled Android distributions.
 - **Material 3 Design**: Vibrant, energetic color scheme with full support for Light/Dark mode and Dynamic Color.
 - **Edge-to-Edge**: Modern immersive UI that utilizes the full screen.
@@ -48,6 +52,22 @@ This project is configured for production:
 - **Accessibility**: Support for screen readers (TalkBack).
 - **Security**: R8/ProGuard minification enabled for release builds.
 - **Testing**: Includes a foundation for unit and ViewModel tests.
+
+## 🤝 Donations
+
+If you like Dualist, I'd appreciate a small donation — thank you! Below are some common cryptocurrency options.
+
+<div align="center">
+
+[![Bitcoin](https://img.shields.io/badge/Bitcoin-BTC-FF9900?style=for-the-badge&logo=bitcoin&logoColor=white)](https://blockchair.com/bitcoin/address/1DsCAVrzvGokrzXpe6YR33QuTo5EppiKRE)
+[![Litecoin](https://img.shields.io/badge/Litecoin-LTC-345D9D?style=for-the-badge&logo=litecoin&logoColor=white)](https://blockchair.com/litecoin/address/LU2ERRXKTeKnzpuieQcpsBteViEY7ff5Wg)
+
+</div>
+
+Alternatively, you can also display the addresses directly:
+
+- Bitcoin (BTC): `1DsCAVrzvGokrzXpe6YR33QuTo5EppiKRE` — or open in block explorer by clicking the badge above
+- Litecoin (LTC): `LU2ERRXKTeKnzpuieQcpsBteViEY7ff5Wg` — or open in block explorer by clicking the badge above
 
 ## 🛡 License
 
