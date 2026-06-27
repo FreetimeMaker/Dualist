@@ -67,6 +67,9 @@ fun ReleaseCard(
 @Composable
 fun ChangeLogScreen(onBack: () -> Unit) {
     val releases = listOf(
+        "v1.1.1" to listOf(
+            "Fixed the App Crash on App Startup"
+        ),
         "v1.1.0" to listOf(
             "Added Search & Filter for tasks.",
             "Added Swipe-to-Delete gesture.",
