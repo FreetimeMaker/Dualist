@@ -13,17 +13,12 @@ import com.freetime.dualist.data.Task
 import com.freetime.dualist.data.TaskRepository
 import com.freetime.dualist.reminder.ReminderReceiver
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class TaskViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: TaskRepository
     private val context = application.applicationContext
@@ -36,14 +31,7 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
         repository = TaskRepository(taskDao)
     }
 
-    val tasks: StateFlow<List<Task>> = _searchQuery
-        .flatMapLatest { query ->
-            if (query.isEmpty()) {
-                repository.allTasks
-            } else {
-                repository.searchTasks(query)
-            }
-        }
+    val tasks: StateFlow<List<Task>> = repository.allTasks
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
@@ -52,6 +40,7 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
 
     fun onSearchQueryChange(newQuery: String) {
         _searchQuery.value = newQuery
+        // For now, search is handled in memory if needed, or we can restore flatMapLatest later
     }
 
     fun addTask(title: String, description: String = "", category: String = "General") {
@@ -78,32 +67,11 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun exportTasks(uri: Uri) {
-        viewModelScope.launch(Dispatchers.IO) {
-            try {
-                val json = Json.encodeToString(tasks.value)
-                context.contentResolver.openOutputStream(uri)?.use { 
-                    it.write(json.toByteArray())
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
+        // Temporarily disabled to check if serialization is causing the crash
     }
 
     fun importTasks(uri: Uri) {
-        viewModelScope.launch(Dispatchers.IO) {
-            try {
-                val content = context.contentResolver.openInputStream(uri)?.bufferedReader()?.use { it.readText() }
-                if (content != null) {
-                    val importedList = Json.decodeFromString<List<Task>>(content)
-                    for (task in importedList) {
-                        repository.insert(task.copy(id = 0))
-                    }
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
+        // Temporarily disabled to check if serialization is causing the crash
     }
 
     fun scheduleReminder(task: Task, timeInMillis: Long) {

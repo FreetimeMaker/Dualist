@@ -110,17 +110,11 @@ fun TaskListScreen(
                         ) {
                             DropdownMenuItem(
                                 text = { Text("Changelog") },
-                                onClick = { 
-                                    showMenu = false
-                                    context.startActivity(Intent(context, ChangeLogActivity::class.java))
-                                }
+                                onClick = { showMenu = false }
                             )
                             DropdownMenuItem(
                                 text = { Text("Donate") },
-                                onClick = { 
-                                    showMenu = false
-                                    context.startActivity(Intent(context, DonateActivity::class.java))
-                                }
+                                onClick = { showMenu = false }
                             )
                             HorizontalDivider()
                             DropdownMenuItem(

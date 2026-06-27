@@ -27,10 +27,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ChangeLogActivity" android:exported="false" />
-        <activity android:name=".DonateActivity" android:exported="false" />
-        <activity android:name=".WalletAddressActivity" android:exported="false" />
-
         <receiver android:name=".reminder.ReminderReceiver" android:exported="false" />
     </application>
 

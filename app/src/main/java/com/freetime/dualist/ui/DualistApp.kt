@@ -5,9 +5,9 @@ import androidx.compose.material3.adaptive.layout.ListDetailPaneScaffoldRole
 import androidx.compose.material3.adaptive.navigation.NavigableListDetailPaneScaffold
 import androidx.compose.material3.adaptive.navigation.rememberListDetailPaneScaffoldNavigator
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.freetime.dualist.ui.screens.TaskDetailScreen
 import com.freetime.dualist.ui.screens.TaskListScreen
@@ -19,8 +19,8 @@ import kotlinx.coroutines.launch
 fun DualistApp(viewModel: TaskViewModel = viewModel()) {
     val navigator = rememberListDetailPaneScaffoldNavigator<Int>()
     val scope = rememberCoroutineScope()
-    val tasks by viewModel.tasks.collectAsStateWithLifecycle()
-    val searchQuery by viewModel.searchQuery.collectAsStateWithLifecycle()
+    val tasks by viewModel.tasks.collectAsState()
+    val searchQuery by viewModel.searchQuery.collectAsState()
 
     NavigableListDetailPaneScaffold(
         navigator = navigator,
