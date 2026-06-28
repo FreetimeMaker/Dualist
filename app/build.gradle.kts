@@ -13,8 +13,8 @@ android {
         applicationId = "com.freetime.dualist"
         minSdk = 24
         targetSdk = 37
-        versionCode = 3
-        versionName = "1.1.1"
+        versionCode = 4
+        versionName = "1.1.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,6 +35,16 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+        jniLibs {
+            // Verhindert das Stripping, um binäre Identität auf verschiedenen Systemen zu gewährleisten
+            keepDebugSymbols += "**/*.so"
+        }
     }
 }
 
