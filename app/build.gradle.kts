@@ -24,7 +24,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
-                getDefaultProguardFile("proguard-android.txt"),
+                getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
@@ -42,8 +42,8 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
         jniLibs {
-            // Verhindert das Stripping, um binäre Identität auf verschiedenen Systemen zu gewährleisten
-            doNotStrip("**/*.so")
+            // Hilft bei der Reproduzierbarkeit von nativen Bibliotheken für F-Droid
+            keepDebugSymbols.add("**/*.so")
         }
     }
 }
