@@ -13,8 +13,8 @@ android {
         applicationId = "com.freetime.dualist"
         minSdk = 24
         targetSdk = 37
-        versionCode = 4
-        versionName = "1.1.2"
+        versionCode = 5
+        versionName = "1.1.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,7 +24,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
+                getDefaultProguardFile("proguard-android.txt"),
                 "proguard-rules.pro"
             )
         }
@@ -43,7 +43,7 @@ android {
         }
         jniLibs {
             // Verhindert das Stripping, um binäre Identität auf verschiedenen Systemen zu gewährleisten
-            keepDebugSymbols += "**/*.so"
+            doNotStrip("**/*.so")
         }
     }
 }
