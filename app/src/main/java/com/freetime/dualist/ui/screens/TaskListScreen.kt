@@ -66,18 +66,24 @@ fun TaskListScreen(
         topBar = {
             if (isSearchActive) {
                 SearchBar(
-                    query = searchQuery,
-                    onQueryChange = onSearchQueryChange,
-                    onSearch = { isSearchActive = false },
-                    active = true,
-                    onActiveChange = { isSearchActive = it },
-                    placeholder = { Text("Search tasks...") },
-                    leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
-                    trailingIcon = { 
-                        IconButton(onClick = { isSearchActive = false; onSearchQueryChange("") }) {
-                            Icon(Icons.Default.Close, contentDescription = "Close search")
-                        }
+                    inputField = {
+                        SearchBarDefaults.InputField(
+                            query = searchQuery,
+                            onQueryChange = onSearchQueryChange,
+                            onSearch = { isSearchActive = false },
+                            expanded = true,
+                            onExpandedChange = { isSearchActive = it },
+                            placeholder = { Text("Search tasks...") },
+                            leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+                            trailingIcon = { 
+                                IconButton(onClick = { isSearchActive = false; onSearchQueryChange("") }) {
+                                    Icon(Icons.Default.Close, contentDescription = "Close search")
+                                }
+                            },
+                        )
                     },
+                    expanded = true,
+                    onExpandedChange = { isSearchActive = it },
                     modifier = Modifier.fillMaxWidth()
                 ) {}
             } else {
@@ -139,7 +145,7 @@ fun TaskListScreen(
                             )
                         }
                     },
-                    colors = TopAppBarDefaults.largeTopAppBarColors(
+                    colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.surface,
                         titleContentColor = MaterialTheme.colorScheme.onSurface,
                         scrolledContainerColor = MaterialTheme.colorScheme.surfaceContainer
@@ -169,17 +175,17 @@ fun TaskListScreen(
             } else {
                 LazyColumn {
                     items(tasks, key = { it.id }) { task ->
-                        val dismissState = rememberSwipeToDismissBoxState(
-                            confirmValueChange = {
-                                if (it == SwipeToDismissBoxValue.EndToStart) {
-                                    onDeleteTask(task)
-                                    true
-                                } else false
+                        val dismissState = rememberSwipeToDismissBoxState()
+
+                        LaunchedEffect(dismissState.currentValue) {
+                            if (dismissState.currentValue == SwipeToDismissBoxValue.EndToStart) {
+                                onDeleteTask(task)
                             }
-                        )
+                        }
 
                         SwipeToDismissBox(
                             state = dismissState,
+                            enableDismissFromStartToEnd = false,
                             backgroundContent = {
                                 val color = when (dismissState.dismissDirection) {
                                     SwipeToDismissBoxValue.EndToStart -> MaterialTheme.colorScheme.errorContainer
@@ -199,7 +205,6 @@ fun TaskListScreen(
                                     )
                                 }
                             },
-                            enableDismissFromStartToEnd = false
                         ) {
                             ListItem(
                                 headlineContent = {

@@ -67,6 +67,9 @@ fun ReleaseCard(
 @Composable
 fun ChangeLogScreen(onBack: () -> Unit) {
     val releases = listOf(
+        "v1.1.4" to listOf(
+            "Fixed (hopefully) the F-Droid Reproductible Build Error"
+        ),
         "v1.1.3" to listOf(
         "Fixed an F-Droid Reproductible Build Error (Hopefully)"
         ),
