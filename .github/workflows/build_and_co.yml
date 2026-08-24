@@ -62,27 +62,30 @@ jobs:
           java-version: 17
           cache: 'gradle'
 
+      - name: Install Android SDK + correct build-tools
+        run: |
+          sdkmanager --uninstall "build-tools;36.1.0" || true
+          sdkmanager --uninstall "build-tools;35.0.0" || true
+          sdkmanager "build-tools;34.0.0"
+
+      - name: Verify build-tools version
+        run: ls -R $ANDROID_HOME/build-tools
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v6
 
       - name: Build Android App
         run: ./gradlew :app:assembleRelease
 
-      - name: Find APKSIGNER
-        id: find_apksigner
-        run: |
-          APKSIGNER=$(find /usr/local/lib/android/sdk/build-tools -name apksigner | head -n 1)
-          echo "apksigner=$APKSIGNER" >> $GITHUB_OUTPUT
-
-      - name: Sign Android
+      - name: Sign Android (F-Droid compatible)
         id: sign_apk
         run: |
           UNSIGNED_APK="app/build/outputs/apk/release/app-release-unsigned.apk"
           SIGNED_APK="Dualist-v${{ needs.prepare_android_app.outputs.version }}.apk"
           KEYSTORE_PATH="./keystore/Dualist-KeyStore.jks"
 
-          echo "==> Signiere APK: $SIGNED_APK"
-          "${{ steps.find_apksigner.outputs.apksigner }}" sign \
+          echo "==> Signiere APK mit build-tools 34"
+          $ANDROID_HOME/build-tools/34.0.0/apksigner sign \
             --ks "$KEYSTORE_PATH" \
             --ks-key-alias alle \
             --ks-pass pass:${{ secrets.KEYSTORE_PASSWORD }} \
@@ -95,7 +98,7 @@ jobs:
       - name: Verify APK Signature
         run: |
           echo "==> Überprüfe Signatur"
-          "${{ steps.find_apksigner.outputs.apksigner }}" verify --verbose \
+          $ANDROID_HOME/build-tools/34.0.0/apksigner verify --verbose \
             "${{ steps.sign_apk.outputs.signed_apk }}"
 
       - name: Upload APK as build artifact
