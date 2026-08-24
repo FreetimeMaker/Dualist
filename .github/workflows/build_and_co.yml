@@ -62,7 +62,10 @@ jobs:
           java-version: 17
           cache: 'gradle'
 
-      - name: Install Android SDK + correct build-tools
+      - name: Install Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install correct build-tools (F-Droid compatible)
         run: |
           sdkmanager --uninstall "build-tools;36.1.0" || true
           sdkmanager --uninstall "build-tools;35.0.0" || true
