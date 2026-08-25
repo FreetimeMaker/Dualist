@@ -70,8 +70,8 @@ jobs:
 
       - name: Install APKSigCopier
         run: |
-          apt update
-          apt install -y apksigcopier
+          sudo apt update
+          sudo apt install -y apksigcopier
 
       - name: Find APKSIGNER
         id: find_apksigner
