@@ -12,20 +12,20 @@ import com.freetime.dualist.R
 class ReminderReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val taskId = intent.getIntExtra("TASK_ID", 0)
-        val taskTitle = intent.getStringExtra("TASK_TITLE") ?: "Task Reminder"
+        val taskTitle = intent.getStringExtra("TASK_TITLE") ?: context.getString(R.string.reminder_default_title)
 
         val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val channelId = "dualist_reminders"
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(channelId, "Reminders", NotificationManager.IMPORTANCE_HIGH)
+            val channel = NotificationChannel(channelId, context.getString(R.string.reminder_channel_name), NotificationManager.IMPORTANCE_HIGH)
             notificationManager.createNotificationChannel(channel)
         }
 
         val notification = NotificationCompat.Builder(context, channelId)
             .setSmallIcon(R.drawable.ic_launcher_foreground) // Use a proper icon if available
             .setContentTitle(taskTitle)
-            .setContentText("Don't forget to complete your task!")
+            .setContentText(context.getString(R.string.reminder_content_text))
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
             .build()

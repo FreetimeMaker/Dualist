@@ -42,11 +42,11 @@ fun WalletAddressScreen(onBack: () -> Unit) {
     val context = LocalContext.current
     
     val walletAddresses = listOf(
-        "BTC (BTC only)" to "1DsCAVrzvGokrzXpe6YR33QuTo5EppiKRE",
-        "LTC (LTC only)" to "LU2ERRXKTeKnzpuieQcpsBteViEY7ff5Wg",
-        "XMR" to "49szz88CqMWGgyDxp7VqvBS62pGLQcV4YPSBHcLwtxAXLz1Wngf8vW6is4w13Au7C2RovrTiJQaGDV5VBhFnyMBsM44Pn2P",
-        "ETH (ETH only)" to "0x3d3eee5b542975839d2dccbf2f97139debc711bc",
-        "SOL (SOL only)" to "6K6gpBF9nyrSL2vzSaFDZgAJQurkoEzPGtK67WAg6FjX"
+        stringResource(R.string.wallet_btc_only_label) to "1DsCAVrzvGokrzXpe6YR33QuTo5EppiKRE",
+        stringResource(R.string.wallet_ltc_only_label) to "LU2ERRXKTeKnzpuieQcpsBteViEY7ff5Wg",
+        stringResource(R.string.wallet_xmr_label) to "49szz88CqMWGgyDxp7VqvBS62pGLQcV4YPSBHcLwtxAXLz1Wngf8vW6is4w13Au7C2RovrTiJQaGDV5VBhFnyMBsM44Pn2P",
+        stringResource(R.string.wallet_eth_only_label) to "0x3d3eee5b542975839d2dccbf2f97139debc711bc",
+        stringResource(R.string.wallet_sol_only_label) to "6K6gpBF9nyrSL2vzSaFDZgAJQurkoEzPGtK67WAg6FjX"
     )
 
     Scaffold(

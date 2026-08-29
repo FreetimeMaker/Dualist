@@ -61,4 +61,17 @@
     <string name="DonViaGHSponsors">GitHub Sponsors</string>
     <string name="show_wallet_addresses">Näita digikukrute aadresse</string>
     <string name="DonViaPEPE">PEPE</string>
+
+    <!-- Additional UI strings -->
+    <string name="search_placeholder">Otsi ülesandeid&#8230;</string>
+    <string name="search_content_desc">Otsi</string>
+    <string name="menu_content_desc">Menüü</string>
+    <string name="changelog_label">Muudatuste logi</string>
+    <string name="export_tasks_label">Ekspordi ülesanded</string>
+    <string name="import_tasks_label">Impordi ülesanded</string>
+    <string name="delete_content_desc">Kustuta</string>
+    <string name="optional_details_placeholder">Täpsemad üksikasjad (valikuline)&#8230;</string>
+    <string name="reminder_default_title">Ülesande meeldetuletus</string>
+    <string name="reminder_channel_name">Meeldetuletused</string>
+    <string name="reminder_content_text">Ära unusta oma ülesannet täita!</string>
 </resources>

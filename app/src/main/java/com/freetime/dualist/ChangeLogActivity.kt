@@ -67,37 +67,40 @@ fun ReleaseCard(
 @Composable
 fun ChangeLogScreen(onBack: () -> Unit) {
     val releases = listOf(
+        "v1.1.7" to listOf(
+            stringResource(R.string.cl_v117_detail1)
+        ),
         "v1.1.6" to listOf(
-            "Under the Hood Changes so the F-Droid Build should run successful now"
+            stringResource(R.string.cl_v116_detail1)
         ),
         "v1.1.5" to listOf(
-            "Hopefully fixed the Error now"
+            stringResource(R.string.cl_v115_detail1)
         ),
         "v1.1.4" to listOf(
-            "Fixed (hopefully) the F-Droid Reproductible Build Error"
+            stringResource(R.string.cl_v114_detail1)
         ),
         "v1.1.3" to listOf(
-        "Fixed an F-Droid Reproductible Build Error (Hopefully)"
+            stringResource(R.string.cl_v113_detail1)
         ),
         "v1.1.2" to listOf(
-            "Fixed an F-Droid Reproductible Build Error"
+            stringResource(R.string.cl_v112_detail1)
         ),
         "v1.1.1" to listOf(
-            "Fixed the App Crash on App Startup"
+            stringResource(R.string.cl_v111_detail1)
         ),
         "v1.1.0" to listOf(
-            "Added Search & Filter for tasks.",
-            "Added Swipe-to-Delete gesture.",
-            "Added Categories and Tags support.",
-            "Integrated local JSON Backup & Restore.",
-            "Improved Material 3 Adaptive Navigation.",
-            "Added Task Reminders and local notifications."
+            stringResource(R.string.cl_v110_detail1),
+            stringResource(R.string.cl_v110_detail2),
+            stringResource(R.string.cl_v110_detail3),
+            stringResource(R.string.cl_v110_detail4),
+            stringResource(R.string.cl_v110_detail5),
+            stringResource(R.string.cl_v110_detail6)
         ),
         "v1.0.0" to listOf(
-            "Initial Release.",
-            "Offline-first Room database.",
-            "Material 3 design.",
-            "Adaptive 2-pane layout."
+            stringResource(R.string.cl_v100_detail1),
+            stringResource(R.string.cl_v100_detail2),
+            stringResource(R.string.cl_v100_detail3),
+            stringResource(R.string.cl_v100_detail4)
         )
     )
 

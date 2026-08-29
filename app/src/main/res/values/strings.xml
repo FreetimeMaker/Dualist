@@ -62,4 +62,46 @@
     <string name="wallet_addresses_title">Wallet Addresses</string>
     <string name="address_copied">Address copied to clipboard</string>
     <string name="copy_address">Copy Address</string>
+
+    <!-- Additional UI strings -->
+    <string name="search_placeholder">Search tasks&#8230;</string>
+    <string name="search_content_desc">Search</string>
+    <string name="menu_content_desc">Menu</string>
+    <string name="changelog_label">Changelog</string>
+    <string name="export_tasks_label">Export Tasks</string>
+    <string name="import_tasks_label">Import Tasks</string>
+    <string name="delete_content_desc">Delete</string>
+    <string name="optional_details_placeholder">Optional details&#8230;</string>
+    <string name="reminder_default_title">Task Reminder</string>
+    <string name="reminder_channel_name">Reminders</string>
+    <string name="reminder_content_text">Don\'t forget to complete your task!</string>
+
+    <!-- Donate Screen -->
+    <string name="DonViaNOWPayments">Donate via NOWPayments</string>
+
+    <!-- Wallet Addresses -->
+    <string name="wallet_xmr_label">XMR</string>
+    <string name="wallet_btc_only_label">BTC (BTC only)</string>
+    <string name="wallet_ltc_only_label">LTC (LTC only)</string>
+    <string name="wallet_eth_only_label">ETH (ETH only)</string>
+    <string name="wallet_sol_only_label">SOL (SOL only)</string>
+
+    <!-- Changelog -->
+    <string name="cl_v116_detail1">Under the Hood Changes so the F-Droid Build should run successful now</string>
+    <string name="cl_v115_detail1">Hopefully fixed the Error now</string>
+    <string name="cl_v114_detail1">Fixed (hopefully) the F-Droid Reproductible Build Error</string>
+    <string name="cl_v113_detail1">Fixed an F-Droid Reproductible Build Error (Hopefully)</string>
+    <string name="cl_v112_detail1">Fixed an F-Droid Reproductible Build Error</string>
+    <string name="cl_v111_detail1">Fixed the App Crash on App Startup</string>
+    <string name="cl_v110_detail1">Added Search &amp; Filter for tasks.</string>
+    <string name="cl_v110_detail2">Added Swipe-to-Delete gesture.</string>
+    <string name="cl_v110_detail3">Added Categories and Tags support.</string>
+    <string name="cl_v110_detail4">Integrated local JSON Backup &amp; Restore.</string>
+    <string name="cl_v110_detail5">Improved Material 3 Adaptive Navigation.</string>
+    <string name="cl_v110_detail6">Added Task Reminders and local notifications.</string>
+    <string name="cl_v100_detail1">Initial Release.</string>
+    <string name="cl_v100_detail2">Offline-first Room database.</string>
+    <string name="cl_v100_detail3">Material 3 design.</string>
+    <string name="cl_v100_detail4">Adaptive 2-pane layout.</string>
+    <string name="cl_v117_detail1">Fixed the F-Droid Build (Hopefully)</string>
 </resources>

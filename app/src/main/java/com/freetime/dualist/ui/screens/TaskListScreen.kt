@@ -73,11 +73,11 @@ fun TaskListScreen(
                             onSearch = { isSearchActive = false },
                             expanded = true,
                             onExpandedChange = { isSearchActive = it },
-                            placeholder = { Text("Search tasks...") },
+                            placeholder = { Text(stringResource(R.string.search_placeholder)) },
                             leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
                             trailingIcon = { 
                                 IconButton(onClick = { isSearchActive = false; onSearchQueryChange("") }) {
-                                    Icon(Icons.Default.Close, contentDescription = "Close search")
+                                    Icon(Icons.Default.Close, contentDescription = stringResource(R.string.back_nav_desc))
                                 }
                             },
                         )
@@ -105,24 +105,24 @@ fun TaskListScreen(
                     },
                     actions = {
                         IconButton(onClick = { isSearchActive = true }) {
-                            Icon(Icons.Default.Search, contentDescription = "Search")
+                            Icon(Icons.Default.Search, contentDescription = stringResource(R.string.search_content_desc))
                         }
                         IconButton(onClick = { showMenu = true }) {
-                            Icon(Icons.Default.MoreVert, contentDescription = "Menu")
+                            Icon(Icons.Default.MoreVert, contentDescription = stringResource(R.string.menu_content_desc))
                         }
                         DropdownMenu(
                             expanded = showMenu,
                             onDismissRequest = { showMenu = false }
                         ) {
                             DropdownMenuItem(
-                                text = { Text("Changelog") },
+                                text = { Text(stringResource(R.string.changelog_label)) },
                                 onClick = { 
                                     showMenu = false
                                     context.startActivity(Intent(context, ChangeLogActivity::class.java))
                                 }
                             )
                             DropdownMenuItem(
-                                text = { Text("Donate") },
+                                text = { Text(stringResource(R.string.donate_title)) },
                                 onClick = { 
                                     showMenu = false
                                     context.startActivity(Intent(context, DonateActivity::class.java))
@@ -130,14 +130,14 @@ fun TaskListScreen(
                             )
                             HorizontalDivider()
                             DropdownMenuItem(
-                                text = { Text("Export Tasks") },
+                                text = { Text(stringResource(R.string.export_tasks_label)) },
                                 onClick = { 
                                     showMenu = false
                                     exportLauncher.launch("dualist_backup.json")
                                 }
                             )
                             DropdownMenuItem(
-                                text = { Text("Import Tasks") },
+                                text = { Text(stringResource(R.string.import_tasks_label)) },
                                 onClick = { 
                                     showMenu = false
                                     importLauncher.launch("application/json")
@@ -200,7 +200,7 @@ fun TaskListScreen(
                                 ) {
                                     Icon(
                                         Icons.Default.Delete,
-                                        contentDescription = "Delete",
+                                        contentDescription = stringResource(R.string.delete_content_desc),
                                         tint = MaterialTheme.colorScheme.onErrorContainer
                                     )
                                 }
@@ -283,7 +283,7 @@ fun TaskListScreen(
                         value = newTaskDescription,
                         onValueChange = { newTaskDescription = it },
                         label = { Text(stringResource(R.string.description_label)) },
-                        placeholder = { Text("Optional details...") },
+                        placeholder = { Text(stringResource(R.string.optional_details_placeholder)) },
                         modifier = Modifier.fillMaxWidth(),
                         shape = MaterialTheme.shapes.medium
                     )
