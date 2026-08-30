@@ -61,17 +61,39 @@
     <string name="wallet_addresses_title">钱包地址</string>
     <string name="address_copied">地址已复制到剪贴板</string>
     <string name="copy_address">复制地址</string>
-
     <!-- Additional UI strings -->
-    <string name="search_placeholder">搜索任务&#8230;</string>
+    <string name="search_placeholder">搜索任务…</string>
     <string name="search_content_desc">搜索</string>
     <string name="menu_content_desc">菜单</string>
     <string name="changelog_label">更新日志</string>
     <string name="export_tasks_label">导出任务</string>
     <string name="import_tasks_label">导入任务</string>
     <string name="delete_content_desc">删除</string>
-    <string name="optional_details_placeholder">可选详情&#8230;</string>
+    <string name="optional_details_placeholder">可选详情…</string>
     <string name="reminder_default_title">任务提醒</string>
     <string name="reminder_channel_name">提醒</string>
     <string name="reminder_content_text">别忘了完成你的任务！</string>
+    <string name="DonViaNOWPayments">通过 NOWPayments 捐赠</string>
+    <string name="wallet_xmr_label">XMR</string>
+    <string name="wallet_btc_only_label">BTC（仅限 BTC）</string>
+    <string name="wallet_ltc_only_label">LTC（仅限 LTC）</string>
+    <string name="wallet_eth_only_label">ETH（仅限 ETH）</string>
+    <string name="wallet_sol_only_label">SOL（仅限 SOL）</string>
+    <string name="cl_v116_detail1">进行了底层优化，因此 F-Droid 构建现在应该能成功运行</string>
+    <string name="cl_v115_detail1">希望现在已经修复了该错误</string>
+    <string name="cl_v114_detail1">（希望）已修复 F-Droid 可复现构建的错误</string>
+    <string name="cl_v113_detail1">修复了一个 F-Droid 可复现构建的错误 （希望）</string>
+    <string name="cl_v112_detail1">修复了一个 F-Droid 可复现构建的错误</string>
+    <string name="cl_v111_detail1">修复了应用启动时崩溃的问题</string>
+    <string name="cl_v110_detail1">为任务添加了搜索和筛选功能。</string>
+    <string name="cl_v110_detail2">添加了“滑动删除”手势。</string>
+    <string name="cl_v110_detail3">添加了类别和标签支持。</string>
+    <string name="cl_v110_detail4">集成了本地 JSON 备份和恢复功能。</string>
+    <string name="cl_v110_detail5">改进了 Material 3 自适应导航。</string>
+    <string name="cl_v110_detail6">添加了任务提醒和本地通知。</string>
+    <string name="cl_v100_detail1">首次发布。</string>
+    <string name="cl_v100_detail2">以离线为主的 Room 数据库。</string>
+    <string name="cl_v100_detail3">Material 3 设计。</string>
+    <string name="cl_v100_detail4">自适应双窗格布局。</string>
+    <string name="cl_v117_detail1">修复了 F-Droid 构建问题（希望）</string>
 </resources>
