@@ -61,17 +61,39 @@
     <string name="DonViaGHSponsors">GitHub Sponsors</string>
     <string name="show_wallet_addresses">Näita digikukrute aadresse</string>
     <string name="DonViaPEPE">PEPE</string>
-
     <!-- Additional UI strings -->
-    <string name="search_placeholder">Otsi ülesandeid&#8230;</string>
+    <string name="search_placeholder">Otsi ülesandeid…</string>
     <string name="search_content_desc">Otsi</string>
     <string name="menu_content_desc">Menüü</string>
     <string name="changelog_label">Muudatuste logi</string>
     <string name="export_tasks_label">Ekspordi ülesanded</string>
     <string name="import_tasks_label">Impordi ülesanded</string>
     <string name="delete_content_desc">Kustuta</string>
-    <string name="optional_details_placeholder">Täpsemad üksikasjad (valikuline)&#8230;</string>
+    <string name="optional_details_placeholder">Täpsemad üksikasjad (valikuline)…</string>
     <string name="reminder_default_title">Ülesande meeldetuletus</string>
     <string name="reminder_channel_name">Meeldetuletused</string>
     <string name="reminder_content_text">Ära unusta oma ülesannet täita!</string>
+    <string name="DonViaNOWPayments">Toeta NOWPayments teenuse vahendusel</string>
+    <string name="wallet_xmr_label">XMR</string>
+    <string name="wallet_btc_only_label">BTC (vaid BTC)</string>
+    <string name="wallet_ltc_only_label">LTC (vaid LTC)</string>
+    <string name="wallet_eth_only_label">ETH (vaid ETH)</string>
+    <string name="wallet_sol_only_label">SOL (vaid SOL)</string>
+    <string name="cl_v116_detail1">Pinu sisemisi muudatusi, mis tagavad, et F-Droidi kompileerimine toimib nüüd tõrgeteta</string>
+    <string name="cl_v115_detail1">Loodetavasti on see viga nüüd parandatud</string>
+    <string name="cl_v114_detail1">F-Droidi korratava kompileerimise viga on nüüd (loodetavasti) korras</string>
+    <string name="cl_v113_detail1">F-Droidi korratava kompileerimise viga on nüüd (loodetavasti) korras</string>
+    <string name="cl_v112_detail1">F-Droidi korratava kompileerimise viga on nüüd korras</string>
+    <string name="cl_v111_detail1">Parandasime rakenduse kokkujooksmise käivitamisel</string>
+    <string name="cl_v110_detail1">Lisasime ülesannete otsingu ja filtreerimise.</string>
+    <string name="cl_v110_detail2">Lisasime viipamisega kustutamise.</string>
+    <string name="cl_v110_detail3">Lisasime kategooriate ja siltide toe.</string>
+    <string name="cl_v110_detail4">Lõimisime kohalik JSON-ipõhise varunduse ja taastamise.</string>
+    <string name="cl_v100_detail3">Kujundus Material 3 kujunduskeeles.</string>
+    <string name="cl_v100_detail4">Kohanduv kahepaanine küljendus.</string>
+    <string name="cl_v117_detail1">F-Droidi korratava kompileerimise viga on (loodetavasti) korras</string>
+    <string name="cl_v100_detail1">Esimene versioon.</string>
+    <string name="cl_v100_detail2">Kohalikus nutiseadmes toimiv andmekogu.</string>
+    <string name="cl_v110_detail6">Lisasime kohalikud ülesannete meeldetuletused ja kohalikud teavitused.</string>
+    <string name="cl_v110_detail5">Parandasime Material 3 kujunduskeele põhist menüülahenduse.</string>
 </resources>
