@@ -38,7 +38,7 @@ fun TaskListScreen(
     onTaskClick: (Task) -> Unit,
     onToggleTask: (Task) -> Unit,
     onDeleteTask: (Task) -> Unit,
-    onAddTask: (String, String) -> Unit,
+    onAddTask: (String, String, String) -> Unit,
     onExportTasks: (Uri) -> Unit,
     onImportTasks: (Uri) -> Unit,
     modifier: Modifier = Modifier
@@ -49,6 +49,7 @@ fun TaskListScreen(
     var isSearchActive by remember { mutableStateOf(false) }
     var newTaskTitle by remember { mutableStateOf("") }
     var newTaskDescription by remember { mutableStateOf("") }
+    var newTaskCategory by remember { mutableStateOf("") }
 
     val exportLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.CreateDocument("application/json")
@@ -287,15 +288,29 @@ fun TaskListScreen(
                         modifier = Modifier.fillMaxWidth(),
                         shape = MaterialTheme.shapes.medium
                     )
+                    OutlinedTextField(
+                        value = newTaskCategory,
+                        onValueChange = { newTaskCategory = it },
+                        label = { Text(stringResource(R.string.category_label)) },
+                        placeholder = { Text(stringResource(R.string.category_placeholder)) },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = MaterialTheme.shapes.medium
+                    )
                 }
             },
             confirmButton = {
                 Button(
                     onClick = {
                         if (newTaskTitle.isNotBlank()) {
-                            onAddTask(newTaskTitle, newTaskDescription)
+                            onAddTask(
+                                newTaskTitle, 
+                                newTaskDescription, 
+                                if (newTaskCategory.isNotBlank()) newTaskCategory else "General"
+                            )
                             newTaskTitle = ""
                             newTaskDescription = ""
+                            newTaskCategory = ""
                             showAddDialog = false
                         }
                     },
@@ -305,7 +320,12 @@ fun TaskListScreen(
                 }
             },
             dismissButton = {
-                TextButton(onClick = { showAddDialog = false }) {
+                TextButton(onClick = { 
+                    showAddDialog = false
+                    newTaskTitle = ""
+                    newTaskDescription = ""
+                    newTaskCategory = ""
+                }) {
                     Text(stringResource(R.string.cancel))
                 }
             },

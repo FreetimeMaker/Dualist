@@ -8,7 +8,7 @@ interface TaskDao {
     @Query("SELECT * FROM tasks ORDER BY isCompleted ASC, createdAt DESC")
     fun getAllTasks(): Flow<List<Task>>
 
-    @Query("SELECT * FROM tasks WHERE title LIKE '%' || :query || '%' OR description LIKE '%' || :query || '%' ORDER BY isCompleted ASC, createdAt DESC")
+    @Query("SELECT * FROM tasks WHERE title LIKE '%' || :query || '%' OR description LIKE '%' || :query || '%' OR category LIKE '%' || :query || '%' ORDER BY isCompleted ASC, createdAt DESC")
     fun searchTasks(query: String): Flow<List<Task>>
 
     @Query("SELECT * FROM tasks WHERE category = :category ORDER BY isCompleted ASC, createdAt DESC")

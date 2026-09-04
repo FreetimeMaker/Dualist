@@ -74,4 +74,6 @@
     <string name="reminder_default_title">Ülesande meeldetuletus</string>
     <string name="reminder_channel_name">Meeldetuletused</string>
     <string name="reminder_content_text">Ära unusta oma ülesannet täita!</string>
+    <string name="category_label">Kategooria</string>
+    <string name="category_placeholder">nt Töö, Isiklik, Ostlemine</string>
 </resources>

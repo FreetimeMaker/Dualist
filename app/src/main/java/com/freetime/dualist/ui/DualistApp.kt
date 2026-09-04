@@ -36,7 +36,9 @@ fun DualistApp(viewModel: TaskViewModel = viewModel()) {
                 },
                 onToggleTask = { viewModel.toggleTaskCompletion(it) },
                 onDeleteTask = { viewModel.deleteTask(it) },
-                onAddTask = { title, description -> viewModel.addTask(title, description) },
+                onAddTask = { title, description, category -> 
+                    viewModel.addTask(title, description, category) 
+                },
                 onExportTasks = { viewModel.exportTasks(it) },
                 onImportTasks = { viewModel.importTasks(it) }
             )

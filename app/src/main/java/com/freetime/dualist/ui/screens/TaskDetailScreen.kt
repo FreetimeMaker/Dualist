@@ -88,21 +88,33 @@ fun TaskDetailScreen(
                             color = MaterialTheme.colorScheme.onSurface
                         )
                         Spacer(modifier = Modifier.height(12.dp))
-                        Surface(
-                            shape = MaterialTheme.shapes.medium,
-                            color = if (task.isCompleted) 
-                                MaterialTheme.colorScheme.primaryContainer 
-                            else MaterialTheme.colorScheme.secondaryContainer
-                        ) {
-                            Text(
-                                text = if (task.isCompleted) 
-                                    stringResource(R.string.status_completed) 
-                                else stringResource(R.string.status_pending),
-                                style = MaterialTheme.typography.labelLarge,
-                                modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            Surface(
+                                shape = MaterialTheme.shapes.medium,
                                 color = if (task.isCompleted) 
-                                    MaterialTheme.colorScheme.onPrimaryContainer 
-                                else MaterialTheme.colorScheme.onSecondaryContainer
+                                    MaterialTheme.colorScheme.primaryContainer 
+                                else MaterialTheme.colorScheme.secondaryContainer
+                            ) {
+                                Text(
+                                    text = if (task.isCompleted) 
+                                        stringResource(R.string.status_completed) 
+                                    else stringResource(R.string.status_pending),
+                                    style = MaterialTheme.typography.labelLarge,
+                                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
+                                    color = if (task.isCompleted) 
+                                        MaterialTheme.colorScheme.onPrimaryContainer 
+                                    else MaterialTheme.colorScheme.onSecondaryContainer
+                                )
+                            }
+                            
+                            SuggestionChip(
+                                onClick = { },
+                                label = { Text(task.category) },
+                                shape = MaterialTheme.shapes.medium,
+                                colors = SuggestionChipDefaults.suggestionChipColors(
+                                    containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                                    labelColor = MaterialTheme.colorScheme.onTertiaryContainer
+                                )
                             )
                         }
                         Spacer(modifier = Modifier.height(24.dp))
