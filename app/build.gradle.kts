@@ -13,8 +13,8 @@ android {
         applicationId = "com.freetime.dualist"
         minSdk = 24
         targetSdk = 37
-        versionCode = 9
-        versionName = "1.1.7"
+        versionCode = 10
+        versionName = "1.1.8"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

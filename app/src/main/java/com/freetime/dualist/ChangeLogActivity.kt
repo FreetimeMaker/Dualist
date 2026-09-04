@@ -67,6 +67,9 @@ fun ReleaseCard(
 @Composable
 fun ChangeLogScreen(onBack: () -> Unit) {
     val releases = listOf(
+        "v1.1.8" to listOf(
+            stringResource(R.string.cl_v118_detail1)
+        ),
         "v1.1.7" to listOf(
             stringResource(R.string.cl_v117_detail1)
         ),

@@ -1,0 +1,3 @@
+• Fixed F-Droid Reproducible Build issues
+• Upgrade to Java 17
+• Externalized UI strings
