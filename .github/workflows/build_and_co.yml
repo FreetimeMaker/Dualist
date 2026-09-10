@@ -106,10 +106,6 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v6
 
-      - name: Install Android Build-Tools 36.0.0
-        run: |
-          yes | sdkmanager --install "build-tools;36.0.0"
-
       - name: Build Android App
         run: ./gradlew :app:assembleRelease
 
