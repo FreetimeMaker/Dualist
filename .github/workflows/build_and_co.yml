@@ -72,8 +72,7 @@ jobs:
           yes | "$SDKMANAGER" --licenses > /dev/null || true
 
           "$SDKMANAGER" \
-            "build-tools;36.0.0" \
-            "ndk;28.0.13004108"
+            "build-tools;36.0.0"
 
       - name: Show build environment
         run: |
@@ -92,10 +91,6 @@ jobs:
           echo "Build Tools:"
           ls "$ANDROID_HOME/build-tools"
 
-          echo ""
-          echo "NDK:"
-          ls "$ANDROID_HOME/ndk"
-
       - name: Install Java
         uses: actions/setup-java@v6
         with:
@@ -105,10 +100,6 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v6
-
-      - name: Install Android Build-Tools 36.0.0
-        run: |
-          yes | sdkmanager --install "build-tools;36.0.0"
 
       - name: Build Android App
         run: ./gradlew :app:assembleRelease
