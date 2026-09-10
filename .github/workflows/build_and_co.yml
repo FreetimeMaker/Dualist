@@ -55,6 +55,47 @@ jobs:
           token: ${{ secrets.KEYSTORE_ACCESS_TOKEN }}
           path: keystore
 
+
+
+      - name: Find and install Android SDK components
+        run: |
+          SDKMANAGER=$(find "$ANDROID_HOME/cmdline-tools" -name sdkmanager -type f | head -n 1)
+
+          if [ -z "$SDKMANAGER" ]; then
+            echo "sdkmanager not found"
+            find "$ANDROID_HOME" -maxdepth 4 -type f | head -n 100
+            exit 1
+          fi
+
+          echo "Using sdkmanager: $SDKMANAGER"
+
+          yes | "$SDKMANAGER" --licenses > /dev/null || true
+
+          "$SDKMANAGER" \
+            "build-tools;36.0.0" \
+            "ndk;28.0.13004108"
+
+      - name: Show build environment
+        run: |
+          echo "Java:"
+          java -version
+
+          echo ""
+          echo "Gradle:"
+          ./gradlew --version
+
+          echo ""
+          echo "Android SDK:"
+          echo "$ANDROID_HOME"
+
+          echo ""
+          echo "Build Tools:"
+          ls "$ANDROID_HOME/build-tools"
+
+          echo ""
+          echo "NDK:"
+          ls "$ANDROID_HOME/ndk"
+
       - name: Install Java
         uses: actions/setup-java@v6
         with:
