@@ -55,7 +55,15 @@ jobs:
           token: ${{ secrets.KEYSTORE_ACCESS_TOKEN }}
           path: keystore
 
+      - name: Install Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: 'gradle'
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Find and install Android SDK components
         run: |
@@ -95,20 +103,6 @@ jobs:
           echo ""
           echo "NDK:"
           ls "$ANDROID_HOME/ndk"
-
-      - name: Install Java
-        uses: actions/setup-java@v6
-        with:
-          distribution: temurin
-          java-version: 17
-          cache: 'gradle'
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v6
-
-      - name: Install Android Build-Tools 36.0.0
-        run: |
-          yes | sdkmanager --install "build-tools;36.0.0"
 
       - name: Build Android App
         run: ./gradlew :app:assembleRelease
