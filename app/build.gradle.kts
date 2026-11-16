@@ -49,6 +49,12 @@ android {
 }
 
 dependencies {
+    implementation(libs.freetime.core)
+    implementation(libs.freetime.design)
+    implementation(libs.freetime.browser)
+    implementation(libs.freetime.donations)
+    implementation(libs.freetime.warn)
+    implementation(libs.freetime.notifications)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.adaptive)
