@@ -70,7 +70,6 @@ coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coi
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
 androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastorePreferences" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 freetime-core = { module = "com.freetime:Core", version.ref = "freetime" }
 freetime-design = { module = "com.freetime:Design", version.ref = "freetime" }
